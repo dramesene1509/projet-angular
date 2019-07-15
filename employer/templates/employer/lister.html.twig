@@ -1,0 +1,44 @@
+ {% extends "base.html.twig" %}
+ {% block title %}LISTES DES EMPLOYERS{% endblock %}
+
+ {% block body %}
+ {% if employer %}
+ <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>matricule</th>
+            <th>nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+            <th>salaire</th>
+            <th>libelle</th>
+            <th></th>
+            <th></th>
+        </tr
+    </thead>
+    <tbody>
+        <tr>
+        {% for employer in employer %}
+            <td>{{employer.matricule}}</td>
+            <td>{{employer.nom}}</td>
+            <td>{{employer.prenom}}</td>
+            <td>{{employer.age}}</td>
+            <td>{{employer.salaire}}</td>
+            <td>{{employer.idService.libelle}}</td>
+            <td>
+            <button class="btn btn-danger">
+                <a href="/employer/{{employer.id}}/supprimer">SUPPRIMER</a>
+                </button>
+                </td>
+                <td>
+                <button class="btn btn-primary">
+                <a href="/employer/{{employer.id}}/ajout">MODIFIER</a>
+                </button>
+                </td>
+             
+        </tr>
+     
+  {% endfor %} 
+  {% endif %} 
+     
+ {% endblock  %}
