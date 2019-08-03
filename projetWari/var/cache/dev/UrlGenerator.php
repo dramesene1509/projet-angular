@@ -18,6 +18,7 @@ return [
     'register' => [[], ['_controller' => 'App\\Controller\\AuthentificationController::register'], [], [['text', '/api/register']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\AuthentificationController::login'], [], [['text', '/api/login_check']], [], []],
     'compte' => [[], ['_controller' => 'App\\Controller\\CompteController::addCompte'], [], [['text', '/api/compte']], [], []],
+    'depot' => [[], ['_controller' => 'App\\Controller\\DepotController::adddepot'], [], [['text', '/api/depot']], [], []],
     'partenaire' => [[], ['_controller' => 'App\\Controller\\PartenaireController::Add'], [], [['text', '/api/partenaire']], [], []],
     'api_entrypoint' => [['index', '_format'], ['_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index' => 'index'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', 'index', 'index', true], ['text', '/api']], [], []],
     'api_doc' => [['_format'], ['_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], [], [['variable', '.', '[^/]++', '_format', true], ['text', '/api/docs']], [], []],

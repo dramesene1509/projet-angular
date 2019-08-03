@@ -31,7 +31,7 @@ class AuthentificationController extends AbstractController
             $user = new Utilisateur();
             $user->setUsername($values->username);
             $user->setPassword($passwordEncoder->encodePassword($user,$values->password));
-            $user->setRoles(['ROLE_USER']);
+            $user->setRoles($values->roles);
             $user->setNom($values->nom);
             $user->setPrenom($values->prenom);
             $user->setEmail($values->email);
@@ -39,7 +39,7 @@ class AuthentificationController extends AbstractController
             $user->setAdresse($values->adresse);
             $user->setCni($values->cni);
             $user->setStatut($values->statut);
-            $profil=$user->setProfil($this->getDoctrine()->getRepository(Profil::class)->find($values->profil));
+            $profil=$user->setProfil($this->getDoctrine()->getRepository(Profil::class)->find($vlues->profil));
             
            
             $errors = $validator->validate($user);

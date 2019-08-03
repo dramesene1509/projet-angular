@@ -19,6 +19,7 @@ return [
             [['_route' => 'api_login_check'], null, null, null, false, false, null],
         ],
         '/api/compte' => [[['_route' => 'compte', '_controller' => 'App\\Controller\\CompteController::addCompte'], null, ['POST' => 0], null, false, false, null]],
+        '/api/depot' => [[['_route' => 'depot', '_controller' => 'App\\Controller\\DepotController::adddepot'], null, ['POST' => 0], null, false, false, null]],
         '/api/partenaire' => [[['_route' => 'partenaire', '_controller' => 'App\\Controller\\PartenaireController::Add'], null, ['POST' => 0], null, false, false, null]],
     ],
     [ // $regexpList

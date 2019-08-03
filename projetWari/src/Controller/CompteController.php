@@ -25,9 +25,10 @@ class CompteController extends AbstractController
     {
         $values=json_decode($request->getcontent());
 
-        if(isset($values->numeroCompte,$values->solde)){
+        if(isset($values->solde)){
             $compte= new Compte();
-            $compte->setNumeroCompte($values->numeroCompte,);
+            $numero=random_int(100000,999999);
+            $compte->setNumeroCompte($numero);
             $compte->setDateCréation(new \DateTime());          
             $partenaire = $this->getDoctrine()->getRepository(Partenaire::class)->find($values->partenaire);
             $compte->setPartenaire($partenaire);

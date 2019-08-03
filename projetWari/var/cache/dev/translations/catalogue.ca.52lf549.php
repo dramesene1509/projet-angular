@@ -109,6 +109,11 @@ $catalogue = new MessageCatalogue('ca', array (
     'Account is disabled.' => 'El compte està deshabilitat.',
     'Account is locked.' => 'El compte està bloquejat.',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Descarregar',
+    'form.label.delete' => 'Eliminar?',
+  ),
 ));
 
 $catalogueEn = new MessageCatalogue('en', array (
@@ -226,6 +231,11 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Credentials have expired.' => 'Credentials have expired.',
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Download',
+    'form.label.delete' => 'Delete?',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);

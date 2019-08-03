@@ -109,6 +109,11 @@ $catalogue = new MessageCatalogue('tr', array (
     'Account is disabled.' => 'Hesap engellenmiş.',
     'Account is locked.' => 'Hesap kilitlenmiş.',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'İndir',
+    'form.label.delete' => 'Sil?',
+  ),
 ));
 
 $catalogueEn = new MessageCatalogue('en', array (
@@ -226,6 +231,11 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Credentials have expired.' => 'Credentials have expired.',
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Download',
+    'form.label.delete' => 'Delete?',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DepotRepository")
  */
@@ -17,17 +19,18 @@ class Depot
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
+    *@ORM\Column(type="integer")
+    *@Assert\NotBlank()
+    *@Assert\Range(min=75000)
+    */
     private $montantDéposé;
 
      /**
      * @ORM\Column(type="datetime")
-     */
+    */
     private $dateDépot;
 
   
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Compte", inversedBy="depots")
      */

@@ -65,6 +65,11 @@ $catalogue = new MessageCatalogue('fi', array (
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Ladattu tiedosto on liian iso. Ole hyvä ja lataa pienempi tiedosto.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'CSRF tarkiste on virheellinen. Ole hyvä ja yritä lähettää lomake uudestaan.',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Lataa',
+    'form.label.delete' => 'Poista?',
+  ),
 ));
 
 $catalogueEn = new MessageCatalogue('en', array (
@@ -182,6 +187,11 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Credentials have expired.' => 'Credentials have expired.',
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
+  ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Download',
+    'form.label.delete' => 'Delete?',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);
