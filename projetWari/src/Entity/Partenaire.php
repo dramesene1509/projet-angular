@@ -48,7 +48,7 @@ class Partenaire implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $statut;
+    private $statuts;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -183,14 +183,14 @@ class Partenaire implements UserInterface
         return $this;
     }
 
-    public function getStatut(): ?string
+    public function getStatuts(): ?string
     {
-        return $this->statut;
+        return $this->statuts;
     }
 
-    public function setStatut(string $statut): self
+    public function setStatuts(string $statuts): self
     {
-        $this->statut = $statut;
+        $this->statuts = $statuts;
 
         return $this;
     }

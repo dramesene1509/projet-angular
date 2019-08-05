@@ -3805,7 +3805,7 @@
       <call method="add">
         <argument type="service" id=".security.request_matcher..M.G6Zf"/>
         <argument type="collection">
-          <argument>ROLE_ADMIN</argument>
+          <argument>ROLE_SUPERADMIN</argument>
         </argument>
         <argument>null</argument>
       </call>

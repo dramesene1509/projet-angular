@@ -24,7 +24,7 @@ class PartenaireController extends AbstractController
 {
     /**
      * @Route("/partenaire", name="partenaire",methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_SUPERADMIN")
      */
     public function Add(Request $request, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator,UserPasswordEncoderInterface $passwordEncoder ){
         $valeurs = json_decode($request->getContent());
@@ -34,7 +34,7 @@ class PartenaireController extends AbstractController
             $partenaire->setRegistreCommerce($valeurs->registreCommerce);
             $partenaire->setRaisonSociale($valeurs->raisonSociale);
             $partenaire->setAdresse($valeurs->adresse);
-            $partenaire->setStatut($valeurs->statut);
+            $partenaire->setStatuts($valeurs->statuts);
             
              
             $user= new Utilisateur();
