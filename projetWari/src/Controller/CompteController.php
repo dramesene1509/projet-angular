@@ -18,9 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class CompteController extends AbstractController
 {
-    /**
-     * @Route("/compte", name="compte",methods={"POST"})
-     */
+   
     public function addCompte(Request $request, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator)
     {
         $values=json_decode($request->getcontent());
@@ -29,6 +27,7 @@ class CompteController extends AbstractController
             $compte= new Compte();
             $numero=random_int(100000,999999);
             $compte->setNumeroCompte($numero);
+
             $compte->setDateCréation(new \DateTime());          
             $partenaire = $this->getDoctrine()->getRepository(Partenaire::class)->find($values->partenaire);
             $compte->setPartenaire($partenaire);

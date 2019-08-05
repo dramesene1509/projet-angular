@@ -2,14 +2,17 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PartenaireRepository")
+ * @ApiResource()
  */
-class Partenaire
+class Partenaire implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -32,37 +35,6 @@ class Partenaire
      * @ORM\Column(type="string", length=255)
      */
     private $raisonSociale;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $telephone;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nomAdmin;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $prenomAdmin;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $emailAdmin;
-
-    /**
-     * @ORM\Column(type="integer")
-    */
-    private $cni;
-
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Compte", mappedBy="partenaire")
      */
@@ -78,9 +50,31 @@ class Partenaire
      */
     private $statut;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $password;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="partenaire")
+     */
+    private $utilisateurs;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $roles = [];
+
     public function __construct()
     {
         $this->Compte = new ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -124,17 +118,7 @@ class Partenaire
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
+  
 
     public function getTelephone(): ?int
     {
@@ -148,53 +132,13 @@ class Partenaire
         return $this;
     }
 
-    public function getNomAdmin(): ?string
-    {
-        return $this->nomAdmin;
-    }
+    
 
-    public function setNomAdmin(string $nomAdmin): self
-    {
-        $this->nomAdmin = $nomAdmin;
 
-        return $this;
-    }
 
-    public function getPrenomAdmin(): ?string
-    {
-        return $this->prenomAdmin;
-    }
 
-    public function setPrenomAdmin(string $prenomAdmin): self
-    {
-        $this->prenomAdmin = $prenomAdmin;
 
-        return $this;
-    }
-
-    public function getEmailAdmin(): ?string
-    {
-        return $this->emailAdmin;
-    }
-
-    public function setEmailAdmin(string $emailAdmin): self
-    {
-        $this->emailAdmin = $emailAdmin;
-
-        return $this;
-    }
-
-    public function getCni(): ?int
-    {
-        return $this->cni;
-    }
-
-    public function setCni(int $cni): self
-    {
-        $this->cni = $cni;
-
-        return $this;
-    }
+  
 
     /**
      * @return Collection|Compte[]
@@ -249,5 +193,96 @@ class Partenaire
         $this->statut = $statut;
 
         return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+  
+
+    /**
+     * @return Collection|Utilisateur[]
+     */
+    public function getUtilisateurs(): Collection
+    {
+        return $this->utilisateurs;
+    }
+
+    public function addUtilisateur(Utilisateur $utilisateur): self
+    {
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+            $utilisateur->setPartenaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(Utilisateur $utilisateur): self
+    {
+        if ($this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs->removeElement($utilisateur);
+            // set the owning side to null (unless already changed)
+            if ($utilisateur->getPartenaire() === $this) {
+                $utilisateur->setPartenaire(null);
+            }
+        }
+
+        return $this;
+    }
+  /**
+    * @see UserInterface
+    */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_ADMIN';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(?array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }

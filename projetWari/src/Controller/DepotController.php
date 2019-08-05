@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
  * @Route("/api")
@@ -21,6 +22,7 @@ class DepotController extends AbstractController
 {
     /**
      * @Route("/depot", name="depot",methods={"POST"})
+     * @IsGranted("ROLE_CAISSIER")
      */
     public function adddepot(Request $request, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator){
         $values = json_decode($request->getContent());
@@ -30,10 +32,9 @@ class DepotController extends AbstractController
             $depot->setMontantDéposé($values->montantDéposé);
             $depot->setDateDépot(new \DateTime());
             $recup = $this->getDoctrine()->getRepository(Compte::class)->find($values->compte);
-            $recup->setSolde($recup->getSolde() + $values->montantDéposé);
+            $recup->setSolde($recup->getSolde()+$values->montantDéposé);
             $depot->setCompte($recup);
-            $users = $this->getDoctrine()->getRepository(Utilisateur::class)->find($values->utilisateur);
-            $depot->setUtilisateur($users);
+            
 
             $errors = $validator->validate($depot);
 

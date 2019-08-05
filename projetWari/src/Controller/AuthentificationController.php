@@ -23,6 +23,7 @@ class AuthentificationController extends AbstractController
 {
     /**
      * @Route("/register", name="register",methods={"POST"})
+     * @IsGranted("ROLE_SUPERADMIN")
     */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, ValidatorInterface $validator)
     {
@@ -39,7 +40,7 @@ class AuthentificationController extends AbstractController
             $user->setAdresse($values->adresse);
             $user->setCni($values->cni);
             $user->setStatut($values->statut);
-            $profil=$user->setProfil($this->getDoctrine()->getRepository(Profil::class)->find($vlues->profil));
+            $profil=$user->setProfil($this->getDoctrine()->getRepository(Profil::class)->find($values->profil));
             
            
             $errors = $validator->validate($user);

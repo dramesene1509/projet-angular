@@ -64,10 +64,10 @@ class Partenaire extends \App\Entity\Partenaire implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomentreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'registreCommerce', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSociale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomAdmin', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'prenomAdmin', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'emailAdmin', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'cni', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'Compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'statut'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomentreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'registreCommerce', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSociale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'Compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'statut', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'password', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateurs', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'roles'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomentreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'registreCommerce', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSociale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomAdmin', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'prenomAdmin', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'emailAdmin', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'cni', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'Compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'statut'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomentreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'registreCommerce', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSociale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'Compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'statut', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'password', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateurs', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'roles'];
     }
 
     /**
@@ -257,28 +257,6 @@ class Partenaire extends \App\Entity\Partenaire implements \Doctrine\ORM\Proxy\P
     /**
      * {@inheritDoc}
      */
-    public function getEmail(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', []);
-
-        return parent::getEmail();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setEmail(string $email): \App\Entity\Partenaire
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
-
-        return parent::setEmail($email);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getTelephone(): ?int
     {
 
@@ -296,94 +274,6 @@ class Partenaire extends \App\Entity\Partenaire implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTelephone', [$telephone]);
 
         return parent::setTelephone($telephone);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNomAdmin(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNomAdmin', []);
-
-        return parent::getNomAdmin();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNomAdmin(string $nomAdmin): \App\Entity\Partenaire
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNomAdmin', [$nomAdmin]);
-
-        return parent::setNomAdmin($nomAdmin);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPrenomAdmin(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrenomAdmin', []);
-
-        return parent::getPrenomAdmin();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setPrenomAdmin(string $prenomAdmin): \App\Entity\Partenaire
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrenomAdmin', [$prenomAdmin]);
-
-        return parent::setPrenomAdmin($prenomAdmin);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getEmailAdmin(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailAdmin', []);
-
-        return parent::getEmailAdmin();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setEmailAdmin(string $emailAdmin): \App\Entity\Partenaire
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailAdmin', [$emailAdmin]);
-
-        return parent::setEmailAdmin($emailAdmin);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCni(): ?int
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCni', []);
-
-        return parent::getCni();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCni(int $cni): \App\Entity\Partenaire
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCni', [$cni]);
-
-        return parent::setCni($cni);
     }
 
     /**
@@ -461,6 +351,127 @@ class Partenaire extends \App\Entity\Partenaire implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatut', [$statut]);
 
         return parent::setStatut($statut);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUsername(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', []);
+
+        return parent::getUsername();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUsername(?string $username): \App\Entity\Partenaire
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', [$username]);
+
+        return parent::setUsername($username);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPassword(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
+
+        return parent::getPassword();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPassword(?string $password): \App\Entity\Partenaire
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
+
+        return parent::setPassword($password);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUtilisateurs(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUtilisateurs', []);
+
+        return parent::getUtilisateurs();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addUtilisateur(\App\Entity\Utilisateur $utilisateur): \App\Entity\Partenaire
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addUtilisateur', [$utilisateur]);
+
+        return parent::addUtilisateur($utilisateur);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeUtilisateur(\App\Entity\Utilisateur $utilisateur): \App\Entity\Partenaire
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeUtilisateur', [$utilisateur]);
+
+        return parent::removeUtilisateur($utilisateur);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRoles(): array
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoles', []);
+
+        return parent::getRoles();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRoles(?array $roles): \App\Entity\Partenaire
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoles', [$roles]);
+
+        return parent::setRoles($roles);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSalt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSalt', []);
+
+        return parent::getSalt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function eraseCredentials()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', []);
+
+        return parent::eraseCredentials();
     }
 
 }

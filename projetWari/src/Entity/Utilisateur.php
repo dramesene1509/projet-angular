@@ -83,6 +83,11 @@ class Utilisateur implements UserInterface
      */
     private $depots;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Partenaire", inversedBy="utilisateurs")
+     */
+    private $partenaire;
+
     public function __construct()
     {
         $this->depots = new ArrayCollection();
@@ -284,6 +289,18 @@ class Utilisateur implements UserInterface
                 $depot->setUtilisateur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPartenaire(): ?Partenaire
+    {
+        return $this->partenaire;
+    }
+
+    public function setPartenaire(?Partenaire $partenaire): self
+    {
+        $this->partenaire = $partenaire;
 
         return $this;
     }
