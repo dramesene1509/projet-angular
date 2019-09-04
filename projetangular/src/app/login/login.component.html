@@ -1,0 +1,35 @@
+
+
+
+    <div class="page login-page">
+      <div class="container ">
+        <div class="form-outer text-center d-flex align-items-center amina" >
+          <div class="form-inner">
+            <div class="logo text-uppercase"><span></span><strong class="text-primary">TRNANSMONEY</strong></div>
+            <p>veillez-vous identifier</p>
+            <form method="get" class="text-left form-validate">
+              <div class="form-group-material">
+                <input id="login-username"  [(ngModel)]="loginUserData.username"type="text" name="username" required data-msg="Please enter your username" class="input-material">
+                <label for="login-username" class="label-material">Username</label>
+              </div>
+              <div class="form-group-material">
+                <input id="login-password" [(ngModel)]="loginUserData.password"type="password" name="password" required data-msg="Please enter your password" class="input-material">
+                <label for="login-password" class="label-material">Password</label>
+              </div>
+              <div class="form-group text-center btn-outline-secondary bouton">
+                <button (click)="loginUser()" type="button" class="btn btn-success float-right">login</button>
+                </div>
+            </form>
+          </div>
+          <div class="copyrights text-center">
+         
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+
+    <!-- Main File-->
+    
+
+

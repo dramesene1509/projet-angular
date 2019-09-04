@@ -1,0 +1,76 @@
+<div class="row pt-5 amina">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0">AJOUTEZ Partenaires</h3>
+            </div>
+            <div class="card-body">
+                <form class="form">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="">nom entreprise</label>
+                            <input [(ngModel)]="partUserData.nomentreprise" name="nomentreprise" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="">registre de Commerce</label>
+                            <input [(ngModel)]="partUserData.registreCommerce" name="registreCommerce" type="text" class="form-control rounded-0" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="">raisonSociale</label>
+                            <input [(ngModel)]="partUserData.raisonSociale" name="raisonSociale" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="">adresse</label>
+                            <input [(ngModel)]="partUserData.adresse" name="adresse" type="text" class="form-control rounded-0" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="">adminpartenaire</label>
+                            <input [(ngModel)]="partUserData.username" name="username" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="">password</label>
+                            <input [(ngModel)]="partUserData.password" name="password" type="password" class="form-control rounded-0" required>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-lg-6">
+                            <label for="">nom</label>
+                            <input [(ngModel)]="partUserData.nom" name="nom" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="">prenom</label>
+                            <input [(ngModel)]="partUserData.prenom" name="prenom" type="text" class="form-control rounded-0" required>
+                        </div>
+                    </div>
+                    <div class="row">
+            <div class="form-group col-lg-6">
+                            <label for="">email</label>
+                            <input [(ngModel)]="partUserData.email" name="email" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="">telephone</label>
+                            <input [(ngModel)]="partUserData.telephone" name="telephone" type="number" class="form-control rounded-0" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="form-group col-lg-6">
+                                    <label for="">cni</label>
+                                    <input [(ngModel)]="partUserData.cni" name="cni" type="number" class="form-control rounded-0" required>
+                            </div>
+                            <div class="form-group col-lg-6">
+                        <label for="">Image</label>
+                        <img [src]='imageUrl' style="width:250px;height:200px">
+                        <input type="file" #image accept="image/*" name="imageName" (change)="handleFileInput($event.target.files)">
+                        </div>
+                    </div>
+                    <button (click)="partUser()" type="button" class="btn btn-success float-right">ajouter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
